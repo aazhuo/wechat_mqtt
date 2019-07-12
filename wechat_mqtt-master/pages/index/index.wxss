@@ -1,0 +1,59 @@
+
+.text_style{
+
+  color: black;
+  font-size: 1.5ch;
+  display: flex;
+  justify-content: center;
+
+  align-items: cente
+}
+
+.one_row{
+  flex-direction: row; 
+  display: flex;
+  margin-top: 1%;
+  border: 6rpx black solid;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.two_row{
+
+  flex-direction: row; 
+  display: flex;
+  margin-top: 1%;
+  border: 6rpx black solid;
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+.one_line{
+
+  flex-direction: row;
+  display: flex;
+  font-size:1.5ch;
+  text-align: center;
+  padding-top: 1px;
+  padding-left: 1%;
+}
+.input_style{
+
+  border: 2rpx black solid;
+  height: 30%;
+  width: 50%;
+}
+.button_style{
+height:40px;
+width: 80px;
+text-align: center;
+color: black;
+background-color:royalblue;
+
+}
+.show_text{
+  width:80%; 
+  height:100px;
+  margin-left: 1%;
+  font-size: 1.5ch;
+  padding-top: 1%;
+}

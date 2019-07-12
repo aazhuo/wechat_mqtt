@@ -1,0 +1,66 @@
+
+<view class='one_row'>
+
+<view >
+<view class='one_line'>
+<text >服务器:</text>
+  <input  bindinput="addrinput" class='input_style'    />
+</view>
+
+<view class='one_line'>
+<text >客户端:</text>
+  <input class='input_style'  bindinput="clientidinput" />
+</view>
+
+<view class='one_line'>
+<text >用户名:</text>
+  <input class='input_style' bindinput="userinput" />
+</view>
+
+<view class='one_line'>
+<text >密码值:</text>
+  <input class='input_style' bindinput="pswdinput" />
+</view>
+
+</view>
+<view  style='padding-top: 15%; padding-right: 5%' >
+ <button bindtap="connect_button"  class="button_style">连接</button>
+</view>
+
+</view>
+
+  
+<view  class='two_row'>
+
+<view>
+
+ <view class='one_line'>
+<text >订阅主题:</text>
+  <input class='input_style'  placeholder="输入订阅主题" bindinput="subtopicinput"  />
+  </view>
+
+  <view class='one_line'>
+<text >推送主题:</text>
+  <input class='input_style'  placeholder="输入推送主题" bindinput="pubtopicinput"  />
+
+  </view>
+</view>
+
+<view style='padding-top: 4%; padding-right: 5%' >
+   <button  class="button_style" bindtap='onClick_SubOne'>订阅</button> 
+</view>
+</view>
+
+<view   style='padding-top: 3%'  >
+ <text style='font-size: 1.5ch'>接收显示框</text> 
+<textarea class='show_text'  style=' border: 2px black solid; word-break:break-all;'>{{subscribedata}}
+</textarea>
+  <text style='font-size: 1.5ch'>发送显示框</text> 
+<textarea bindinput="valueChange" class='show_text'  style=' border: 2px black solid;   word-break:break-all;'> 
+</textarea>
+
+</view>
+
+<view>
+  <button  class='button_style' style='top:20px' bindtap='onClick_PubMsg'>发送</button>
+</view>
