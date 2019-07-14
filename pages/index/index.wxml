@@ -14,7 +14,7 @@
 
 <view class='one_line'>
 <text >用户名:</text>
-  <input class='input_style' bindinput="userinput" />
+  <input class='input_style'  bindinput="userinput" />
 </view>
 
 <view class='one_line'>

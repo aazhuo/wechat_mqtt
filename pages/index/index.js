@@ -3,24 +3,20 @@ var app = getApp();
 Page({
   data: {
  
-    client: "",
+    client:null,
     hostaddr:"",
     subtopic:"",
     pubtopic:"",
     publishdata:"",//发送数据缓存
     subscribedata:"",//接收数据缓存
-    //记录重连的次数
-    reconnectCounts: 0,
+
     //MQTT连接的配置
     options: {
       protocolVersion: 4, //MQTT连接协议版本
       clientId:"",
       clean: false,
-      username: "U-2",
-      password: "hahahaha",
-    
-     //password: "",
-     //username: "",
+     password: "",
+     username: "",
       reconnectPeriod: 1000, //1000毫秒，两次重新连接之间的间隔
       connectTimeout: 30 * 1000, //1000毫秒，两次重新连接之间的间隔
       resubscribe: true //如果连接断开并重新连接，则会再次自动订阅已订阅的主题（默认true）
@@ -49,12 +45,6 @@ Page({
     })
 
 
-    //服务器连接异常的回调
-    that.data.client.on("error", function (error) {
-      console.log(" 服务器 error 的回调" + error)
-  
-
-    })
 
     //服务器重连连接异常的回调
     that.data.client.on("reconnect", function () {
@@ -111,6 +101,7 @@ Page({
       })
     }
   },
+  //订阅主题
   onClick_unSubOne: function () {
     if (this.data.client && this.data.client.connected) {
       this.data.client.unsubscribe('Topic1');
@@ -122,18 +113,8 @@ Page({
       })
     }
   },
-  onClick_unSubMany: function () {
-    if (this.data.client && this.data.client.connected) {
-      this.data.client.unsubscribe(['Topic1', 'Topic2']);
-    } else {
-      wx.showToast({
-        title: '请先连接服务器',
-        icon: 'none',
-        duration: 2000
-      })
-    }
-  },
 
+  //服务器地址输入
   addrinput:function(e){
     this.setData({
       hostaddr: "wxs://" + e.detail.value+"/mqtt"
@@ -141,12 +122,14 @@ Page({
     })
 
   },
+  //客户端ID输入
   clientidinput:function(e){
     
-    this.data.options.clientId = e.detail.value
-      
+    this.data.options. clientId=e.detail.value
+
 
   },
+  //用户名输入
   userinput:function(e){
     
 
@@ -154,7 +137,7 @@ Page({
 
 
   },
-
+//密码输入
   pswdinput: function (e) {
 
     
@@ -163,17 +146,20 @@ Page({
   
 
   },
+  //订阅主题输入
   subtopicinput: function (e) {
 
 
     this.data.subtopic= e.detail.value
   },
+  //推送主题输入
   pubtopicinput: function (e) {
 
 
     this.data.pubtopic = e.detail.value
 
   },
+  //发送数据输入
   valueChange:function(e){
 
     this.data.publishdata = e.detail.value
